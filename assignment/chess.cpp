@@ -17,4 +17,17 @@ bool is_piece(struct ChessPiece pc, enum PieceColor color, enum PieceType type)
    return false;
 }
 
- void init_chess_board(struct* ChessBoard) {}
+void init_chess_board(ChessBoard* board) {}
+
+struct ChessSquare* get_square(ChessBoard chess_board, File file, Rank rank) {
+  return 0;
+}
+
+bool is_square_occupied(ChessBoard chess_board, File file, Rank rank) {
+  return false;
+}
+
+bool add_piece(ChessBoard chess_board, File file, Rank rank, struct ChessPiece piece)
+{
+  return false;
+}
