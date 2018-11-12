@@ -42,7 +42,7 @@ struct ChessSquare* get_square(ChessBoard chess_board, File file, Rank rank) {
 }
 
 bool is_square_occupied(ChessBoard chess_board, File file, Rank rank) {
-  return chess_board[file - 'a'][rank - 1].is_occupied;
+  return chess_board[rank - 1][file - 'a'].is_occupied;
 }
 
 bool add_piece(ChessBoard chess_board, File file, Rank rank, struct ChessPiece piece)
