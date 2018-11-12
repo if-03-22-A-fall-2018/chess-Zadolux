@@ -11,13 +11,23 @@
  * ----------------------------------------------------------
  */
 #include "chess.h"
+#include <stdio.h>
 
 bool is_piece(struct ChessPiece pc, enum PieceColor color, enum PieceType type)
 {
-   return false;
+  return (pc.color == color && pc.type == type);
 }
 
-void init_chess_board(ChessBoard board) {}
+void init_chess_board(ChessBoard board) {
+  for(int f = 0; f < 8; f++)
+  {
+    for(int r = 0; r < 8; r++)
+    {
+      board[f][r].is_occupied = false;
+    }
+  }
+}
+
 void setup_chess_board(ChessBoard board) {}
 
 struct ChessSquare* get_square(ChessBoard chess_board, File file, Rank rank) {
@@ -25,7 +35,7 @@ struct ChessSquare* get_square(ChessBoard chess_board, File file, Rank rank) {
 }
 
 bool is_square_occupied(ChessBoard chess_board, File file, Rank rank) {
-  return false;
+  return chess_board[file - 'a'][rank - 1].is_occupied;
 }
 
 bool add_piece(ChessBoard chess_board, File file, Rank rank, struct ChessPiece piece)
