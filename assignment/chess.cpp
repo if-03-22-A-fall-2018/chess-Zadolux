@@ -11,7 +11,6 @@
  * ----------------------------------------------------------
  */
 #include "chess.h"
-#include <stdio.h>
 
 bool is_piece(struct ChessPiece pc, enum PieceColor color, enum PieceType type)
 {
