@@ -10,7 +10,9 @@
  * Implementation of basic chess functions.
  * ----------------------------------------------------------
  */
-#include "chess.h"
+#ifndef __CHESS_H
+  #include "chess.h"
+#endif
 
 bool is_piece(struct ChessPiece pc, enum PieceColor color, enum PieceType type)
 {
@@ -18,6 +20,7 @@ bool is_piece(struct ChessPiece pc, enum PieceColor color, enum PieceType type)
 }
 
 void init_chess_board(ChessBoard* board) {}
+void setup_chess_board(ChessBoard board) {}
 
 struct ChessSquare* get_square(ChessBoard chess_board, File file, Rank rank) {
   return 0;
@@ -28,6 +31,11 @@ bool is_square_occupied(ChessBoard chess_board, File file, Rank rank) {
 }
 
 bool add_piece(ChessBoard chess_board, File file, Rank rank, struct ChessPiece piece)
+{
+  return false;
+}
+
+bool remove_piece(ChessBoard chess_board, File file, Rank rank)
 {
   return false;
 }
@@ -54,6 +62,11 @@ bool squares_share_diagonal(File s1_f, Rank s1_r, File s2_f, Rank s2_r)
 }
 
 bool squares_share_knights_move(File s1_f, Rank s1_r, File s2_f, Rank s2_r)
+{
+  return false;
+}
+
+bool squares_share_pawns_move(enum PieceColor color, enum MoveType move, File s1_f, Rank s1_r, File s2_f, Rank s2_r)
 {
   return false;
 }
