@@ -31,7 +31,14 @@ void init_chess_board(ChessBoard board) {
 void setup_chess_board(ChessBoard board) {}
 
 struct ChessSquare* get_square(ChessBoard chess_board, File file, Rank rank) {
-  return 0;
+  if(file <= 'h' && rank <= 8)
+  {
+    return &chess_board[rank - 1][file - 'a'];
+  }
+  else
+  {
+    return 0;
+  }
 }
 
 bool is_square_occupied(ChessBoard chess_board, File file, Rank rank) {
