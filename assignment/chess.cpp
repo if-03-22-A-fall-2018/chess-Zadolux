@@ -23,7 +23,7 @@ void init_chess_board(ChessBoard board) {
   {
     for(int r = 0; r < 8; r++)
     {
-      board[f][r].is_occupied = false;
+      board[r][f].is_occupied = false;
     }
   }
 }
@@ -47,7 +47,15 @@ bool is_square_occupied(ChessBoard chess_board, File file, Rank rank) {
 
 bool add_piece(ChessBoard chess_board, File file, Rank rank, struct ChessPiece piece)
 {
-  return false;
+  if((rank <= 8) && (file <= 'h') && !is_square_occupied(chess_board, file, rank))
+  {
+    chess_board[rank - 1][file - 'a'].piece = piece;
+    return true;
+  }
+  else
+  {
+    return false;
+  }
 }
 
 bool remove_piece(ChessBoard chess_board, File file, Rank rank)
