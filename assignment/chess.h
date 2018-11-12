@@ -11,10 +11,17 @@
  * ----------------------------------------------------------
  */
 
-enum PieceColor {WHITE, BLACK};
-enum PieceType {PAWN, ROOK, KNIGHT, BISHOP, QUEEN, KING};
+enum PieceColor { White, Black };
+enum PieceType { Pawn, Rook, Knight, Bishop, Queen, King };
 
- struct ChessPiece {
-   enum PieceColor color;
-   enum PieceType type;
- };
+struct ChessPiece {
+  enum PieceColor color;
+  enum PieceType type;
+};
+
+struct ChessSquare {
+  bool is_occupied;
+  struct ChessPiece piece;
+};
+
+typedef struct ChessSquare ChessBoard[8][8];
