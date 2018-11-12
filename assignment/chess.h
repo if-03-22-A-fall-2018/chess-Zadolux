@@ -10,7 +10,9 @@
  * Basic chess functions.
  * ----------------------------------------------------------
  */
- 
+#ifndef __CHESS_H
+#define __CHESS_H
+
 enum PieceColor { White, Black };
 enum PieceType { NoPiece, Pawn, Rook, Knight, Bishop, Queen, King };
 enum MoveType { NormalMove, CaptureMove };
@@ -44,3 +46,5 @@ bool squares_share_knights_move(File s1_f, Rank s1_r, File s2_f, Rank s2_r);
 bool squares_share_pawns_move(enum PieceColor color, enum MoveType move, File s1_f, Rank s1_r, File s2_f, Rank s2_r);
 bool squares_share_queens_move(File s1_f, Rank s1_r, File s2_f, Rank s2_r);
 bool squares_share_kings_move(File s1_f, Rank s1_r, File s2_f, Rank s2_r);
+
+#endif

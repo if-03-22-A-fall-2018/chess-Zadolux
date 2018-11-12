@@ -10,16 +10,14 @@
  * Implementation of basic chess functions.
  * ----------------------------------------------------------
  */
-#ifndef __CHESS_H
-  #include "chess.h"
-#endif
+#include "chess.h"
 
 bool is_piece(struct ChessPiece pc, enum PieceColor color, enum PieceType type)
 {
    return false;
 }
 
-void init_chess_board(ChessBoard* board) {}
+void init_chess_board(ChessBoard board) {}
 void setup_chess_board(ChessBoard board) {}
 
 struct ChessSquare* get_square(ChessBoard chess_board, File file, Rank rank) {
