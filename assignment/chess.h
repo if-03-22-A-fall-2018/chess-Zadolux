@@ -31,6 +31,7 @@ typedef struct ChessSquare ChessBoard[8][8];
 typedef char File;
 typedef int Rank;
 
+bool is_square_ok (File file, Rank rank);
 bool is_piece(struct ChessPiece pc, enum PieceColor color, enum PieceType type);
 void init_chess_board(ChessBoard board);
 void setup_chess_board(ChessBoard board);

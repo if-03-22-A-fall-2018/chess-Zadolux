@@ -12,6 +12,11 @@
  */
 #include "chess.h"
 
+bool is_square_ok (File file, Rank rank)
+{
+  return file - 'a' >= 0 && file - 'a' <= 7 && rank >= 0 && rank <= 7;
+}
+
 bool is_piece(struct ChessPiece pc, enum PieceColor color, enum PieceType type)
 {
   return (pc.color == color && pc.type == type);
@@ -127,7 +132,7 @@ struct ChessPiece get_piece(ChessBoard chess_board, File file, Rank rank)
 
 bool squares_share_file(File s1_f, Rank s1_r, File s2_f, Rank s2_r)
 {
-  if((s1_f <= 'h' && s1_f >= 'a') && (s2_f <= 'h' && s2_f >= 'a'))
+  if(is_square_ok(s1_f, s1_r) && is_square_ok(s2_f, s2_r))
   {
     if(s1_f == s2_f)
     {
