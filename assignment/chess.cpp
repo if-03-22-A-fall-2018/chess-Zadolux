@@ -27,7 +27,46 @@ void init_chess_board(ChessBoard board) {
   }
 }
 
-void setup_chess_board(ChessBoard board) {}
+void setup_chess_board(ChessBoard chess_board) {
+   struct ChessPiece white_pawn = {White, Pawn};
+   struct ChessPiece white_rook = {White, Rook};
+   struct ChessPiece white_knight = {White, Knight};
+   struct ChessPiece white_bishop = {White, Bishop};
+   struct ChessPiece white_queen = {White, Queen};
+   struct ChessPiece white_king = {White, King};
+
+   struct ChessPiece black_pawn = {Black, Pawn};
+   struct ChessPiece black_rook = {Black, Rook};
+   struct ChessPiece black_knight = {Black, Knight};
+   struct ChessPiece black_bishop = {Black, Bishop};
+   struct ChessPiece black_queen = {Black, Queen};
+   struct ChessPiece black_king = {Black, King};
+
+   init_chess_board(chess_board);
+
+   for (int i = 'a'; i <= 'h'; i++) {
+     add_piece(chess_board, i, 2, white_pawn);
+     add_piece(chess_board, i, 7, black_pawn);
+   }
+
+   add_piece(chess_board, 'a', 1, white_rook);
+   add_piece(chess_board, 'h', 1, white_rook);
+   add_piece(chess_board, 'b', 1, white_knight);
+   add_piece(chess_board, 'g', 1, white_knight);
+   add_piece(chess_board, 'c', 1, white_bishop);
+   add_piece(chess_board, 'f', 1, white_bishop);
+   add_piece(chess_board, 'd', 1, white_queen);
+   add_piece(chess_board, 'e', 1, white_king);
+
+   add_piece(chess_board, 'a', 8, black_rook);
+   add_piece(chess_board, 'h', 8, black_rook);
+   add_piece(chess_board, 'b', 8, black_knight);
+   add_piece(chess_board, 'g', 8, black_knight);
+   add_piece(chess_board, 'c', 8, black_bishop);
+   add_piece(chess_board, 'f', 8, black_bishop);
+   add_piece(chess_board, 'd', 8, black_queen);
+   add_piece(chess_board, 'e', 8, black_king);
+}
 
 struct ChessSquare* get_square(ChessBoard chess_board, File file, Rank rank) {
   if(file <= 'h' && rank <= 8)
