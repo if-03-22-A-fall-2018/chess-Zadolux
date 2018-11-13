@@ -74,13 +74,13 @@ bool remove_piece(ChessBoard chess_board, File file, Rank rank)
 
 struct ChessPiece get_piece(ChessBoard chess_board, File file, Rank rank)
 {
-  if((rank <= 8) && (file <= 'h'))
+  if((rank <= 8) && (file <= 'h') && is_square_occupied(chess_board, file, rank))
   {
     return chess_board[rank - 1][file - 'a'].piece;
   }
   else
   {
-    ChessPiece chess_piece_empty;
+    struct ChessPiece chess_piece_empty;
     chess_piece_empty.type = NoPiece;
     return chess_piece_empty;
   }
