@@ -49,6 +49,7 @@ bool add_piece(ChessBoard chess_board, File file, Rank rank, struct ChessPiece p
   if((rank <= 8) && (file <= 'h') && !is_square_occupied(chess_board, file, rank))
   {
     chess_board[rank - 1][file - 'a'].piece = piece;
+    chess_board[rank - 1][file - 'a'].is_occupied = true;
     return true;
   }
   else
@@ -59,13 +60,30 @@ bool add_piece(ChessBoard chess_board, File file, Rank rank, struct ChessPiece p
 
 bool remove_piece(ChessBoard chess_board, File file, Rank rank)
 {
-  return false;
+  if((rank <= 8) && (file <= 'h') && is_square_occupied(chess_board, file, rank))
+  {
+    chess_board[rank - 1][file - 'a'].is_occupied = false;
+    chess_board[rank - 1][file - 'a'].piece.type = NoPiece;
+    return true;
+  }
+  else
+  {
+    return false;
+  }
 }
 
 struct ChessPiece get_piece(ChessBoard chess_board, File file, Rank rank)
 {
-  struct ChessPiece a;
-  return a;
+  if((rank <= 8) && (file <= 'h'))
+  {
+    return chess_board[rank - 1][file - 'a'].piece;
+  }
+  else
+  {
+    ChessPiece chess_piece_empty;
+    chess_piece_empty.type = NoPiece;
+    return chess_piece_empty;
+  }
 }
 
 bool squares_share_file(File s1_f, Rank s1_r, File s2_f, Rank s2_r)
