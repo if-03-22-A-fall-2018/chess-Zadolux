@@ -127,6 +127,14 @@ struct ChessPiece get_piece(ChessBoard chess_board, File file, Rank rank)
 
 bool squares_share_file(File s1_f, Rank s1_r, File s2_f, Rank s2_r)
 {
+  if((s1_f <= 'h' && s1_f >= 'a') && (s2_f <= 'h' && s2_f >= 'a'))
+  {
+    if(s1_f == s2_f)
+    {
+      return true;
+    }
+  }
+
   return false;
 }
 
